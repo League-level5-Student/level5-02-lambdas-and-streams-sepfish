@@ -12,21 +12,47 @@ public class LambdaMethods {
 			}
 		}, "repeat");
 		
+		System.out.println("\n");
 		//2. Call the printCustonMessage method using a lambda so that the String prints backwards.
-		
-		//this is NOT WORKING :(((( ------------------------------------------------------------------------------
-		
 		printCustomMessage((s) -> {
-			for (int i = s.length() - 1; i < 0; i--) {
+			for (int i = s.length()-1; i >= 0; i--) {
 				System.out.print(s.charAt(i));
 			}
 		}, "pneumonoultramicroscopicsilicovolcanoconiosis");
+		
+		System.out.println("\n");
+		
 		//3. Call the printCustonMessage method using a lambda so that the String prints with a mix between upper an lower case characters.
+		printCustomMessage((s) -> {
+			for (int i = 0; i < s.length(); i++) {
+				if (i%2 == 1) {
+					System.out.print(Character.toUpperCase(s.charAt(i)));
+				} else {
+					System.out.print(Character.toLowerCase(s.charAt(i)));
+				}
+			}
+		}, "is this that spongebob meme");
+		
+		System.out.println("\n");
 		
 		//4. Call the printCustonMessage method using a lambda so that the String prints with a period in between each character.
+		printCustomMessage((s) -> {
+			for (int i = 0; i < s.length(); i++) {
+				System.out.print(s.charAt(i));
+				System.out.print(".");
+			}
+		}, "LOVEMUFFIN");
+		
+		System.out.println("\n");
 		
 		//5. Call the printCustonMessage method using a lambda so that the String prints without any vowels.
-	
+		printCustomMessage((s) -> {
+			for (int i = 0; i < s.length(); i++) {
+				if (!(s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o' || s.charAt(i) == 'u')) {
+					System.out.print(s.charAt(i));
+				}
+			}
+		}, "the quick brown fox jumps over the lazy dog");
 	}
 	
 	public static void printCustomMessage(SpecialPrinter sp, String value) {
